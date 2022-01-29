@@ -10,7 +10,7 @@ spring:
     driverClassName: com.mysql.cj.jdbc.Driver
     url: "jdbc:mysql://localhost:3306/covid19DB?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true&serverTimezone=UTC"
     username: root
-    password: M@lmsuite3996
+    password: 
 
   servlet:
     multipart:
@@ -38,19 +38,3 @@ spring:
       hibernate:
         format_sql: true
   #    defer-datasource-initialization: true
-
-  #Cloudinary Properties
-#cloudinary:
-#  api-key: 988518893397762
-#  api-secret: ${CLOUDINARY_API_SECRET}
-#  cloud-name: malmsuite
-#
-#schedulers:
-#  cronReviews: "*/50 * * * * *"
-#  cronReviewsTemp: "30 7 18 9 * *"
-#  cronDeleteBrowsingUsers: "30 7 18 9 * *"
-#  cronAddVipGuest: "*/100 * * * * *"
-#
-#androria:
-#  andraop.enabled: true
-#  andrmodifying.enabled: true
