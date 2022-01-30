@@ -5,7 +5,7 @@ spring:
     driverClassName: com.mysql.cj.jdbc.Driver
     url: "jdbc:mysql://localhost:3306/covid19DB?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true&serverTimezone=UTC"
     username: root
-    password: M@lmsuite3996
+    password: 
 
   jpa:
     database-platform: org.hibernate.dialect.MySQL8Dialect
@@ -17,4 +17,8 @@ spring:
     properties:
       hibernate:
         format_sql: true
+<<<<<<< HEAD
 
+=======
+  #    defer-datasource-initialization: true
+>>>>>>> b922296bd2334736a524bcafd7233a0bbc2589e4
