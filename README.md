@@ -15,9 +15,11 @@ If you download code, please fill field pass in yml:
     
 SOURCE:
 
+https://api.covid19api.com/summary
+
 https://covid19countries.herokuapp.com/country/{COUNTRYCODE}
 
-EXAMPLES: 
+EXAMPLES:
 
 https://covid19countries.herokuapp.com/country/BG
 
