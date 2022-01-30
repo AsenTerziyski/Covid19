@@ -17,8 +17,4 @@ spring:
     properties:
       hibernate:
         format_sql: true
-<<<<<<< HEAD
 
-=======
-  #    defer-datasource-initialization: true
->>>>>>> b922296bd2334736a524bcafd7233a0bbc2589e4
