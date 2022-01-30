@@ -1,15 +1,12 @@
 package com.covid.countries.web;
 
-import com.covid.countries.model.CountryCovidInfo;
-import com.covid.countries.model.CountryCovidViewModel;
+import com.covid.countries.model.view.CountryCovidViewModel;
 import com.covid.countries.service.CountryCovid19InfoService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/country")

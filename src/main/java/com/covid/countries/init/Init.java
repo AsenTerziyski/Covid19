@@ -1,12 +1,10 @@
 package com.covid.countries.init;
 
 import com.covid.countries.globalconstants.GlobalConstants;
-import com.covid.countries.model.CountryCovidInfo;
 import com.covid.countries.service.CountryCovid19InfoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -14,8 +12,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 @Component
 public class Init implements CommandLineRunner {
@@ -30,11 +26,9 @@ public class Init implements CommandLineRunner {
     }
 
     @Override
-
     public void run(String... args) throws Exception {
         LOGGER.info("Started app at {}", LocalDateTime.now());
         extractingAndSavingDataFromUrl();
-        LOGGER.info("Finished at {}", LocalDateTime.now());
     }
 
     @Scheduled(cron = "*/60 * * * * *")

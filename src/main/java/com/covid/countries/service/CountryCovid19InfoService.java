@@ -1,9 +1,6 @@
 package com.covid.countries.service;
 
-import com.covid.countries.model.CountryCovidInfo;
-import com.covid.countries.model.CountryCovidViewModel;
-
-import java.util.Optional;
+import com.covid.countries.model.view.CountryCovidViewModel;
 
 public interface CountryCovid19InfoService {
 
