@@ -8,16 +8,16 @@ and prepares them so they can be accessed per country.
 * Add documentation to README.md to explane how to build, start and access the service
 * Put all into a GitHub repository
 
-My solution:
-If you download code, you can use:
-
+MY SOLUTION:
+If you download code, please fill field pass in yml:
     username: root
-    p@zz: Malmsuite3996 -> please replace char 'a' with '@' !
-
+    password: ....
+    
+SOURCE:
 
 https://covid19countries.herokuapp.com/country/{COUNTRYCODE}
 
-Examples: 
+EXAMPLES: 
 
 https://covid19countries.herokuapp.com/country/BG
 
