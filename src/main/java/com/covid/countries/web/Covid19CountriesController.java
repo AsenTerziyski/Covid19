@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Locale;
+
 @RestController
 @RequestMapping("/country")
 public class Covid19CountriesController {
@@ -21,7 +23,7 @@ public class Covid19CountriesController {
     @GetMapping("/{countryCode}")
     public ResponseEntity<CountryCovidViewModel> getCountryCovid19InfoByCountryCode(@PathVariable String countryCode) {
         CountryCovidViewModel byCountryCode = this.countryCovid19InfoService.findByCountryCode(countryCode);
-        if (byCountryCode == null) {
+        if (byCountryCode == null || !countryCode.toUpperCase(Locale.ROOT).equals(countryCode)) {
             return ResponseEntity.notFound().build();
         } else {
             return ResponseEntity.ok(byCountryCode);

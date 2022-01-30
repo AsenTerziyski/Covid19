@@ -5,7 +5,7 @@ and prepares them so they can be accessed per country.
 * Download data from https://api.covid19api.com/summary and process it
 * Store in a local database
 * Create a rest endpoint /country/{COUNTRYCODE} where the country code is that two letter string, like BG for Bulgaria and DE for Germany (capital letters only allowed)
-* Add documentation to README.md to explane how to build, start and access the service
+* Add documentation to README.md to explain how to build, start and access the service
 * Put all into a GitHub repository
 
 MY SOLUTION:
@@ -20,7 +20,7 @@ https://api.covid19api.com/summary
 
 https://covid19countries.herokuapp.com/country/{COUNTRYCODE}
 
-EXAMPLES:
+EXAMPLES: / capital letters only allowed! /
 
 https://covid19countries.herokuapp.com/country/BG
 
