@@ -10,6 +10,7 @@ and prepares them so they can be accessed per country.
 
 MY SOLUTION:
 If you download code, please fill field pass in yml:
+
     username: root
     password: ....
     
