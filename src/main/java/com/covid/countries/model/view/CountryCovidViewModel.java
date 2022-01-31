@@ -14,7 +14,9 @@ public class CountryCovidViewModel {
     private Integer newRecovered;
     private Integer totalRecovered;
     private String date;
-    private List<Premium> premium;
+//    private Premium premium;
+//    private String premium;
+    private Object premium;
 
     public CountryCovidViewModel() {
     }
@@ -118,11 +120,30 @@ public class CountryCovidViewModel {
         return this;
     }
 
-    public List<Premium> getPremium() {
+//    public Premium getPremium() {
+//        return premium;
+//    }
+//
+//    public CountryCovidViewModel setPremium(Premium premium) {
+//        this.premium = premium;
+//        return this;
+//    }
+
+//    public String getPremium() {
+//        return premium;
+//    }
+//
+//    public CountryCovidViewModel setPremium(String premium) {
+//        this.premium = premium;
+//        return this;
+//    }
+
+
+    public Object getPremium() {
         return premium;
     }
 
-    public CountryCovidViewModel setPremium(List<Premium> premium) {
+    public CountryCovidViewModel setPremium(Object premium) {
         this.premium = premium;
         return this;
     }

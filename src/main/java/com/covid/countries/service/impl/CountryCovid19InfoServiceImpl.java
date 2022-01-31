@@ -1,10 +1,12 @@
 package com.covid.countries.service.impl;
 
 import com.covid.countries.model.entities.CountryCovidInfo;
+//import com.covid.countries.model.modelgson.Country;
 import com.covid.countries.model.view.CountryCovidViewModel;
-import com.covid.countries.model.view.Premium;
+//import com.covid.countries.model.view.Premium;
 import com.covid.countries.repository.CountriesCovidInfoRepository;
 import com.covid.countries.service.CountryCovid19InfoService;
+import com.google.gson.Gson;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
@@ -17,10 +19,12 @@ import java.util.Optional;
 public class CountryCovid19InfoServiceImpl implements CountryCovid19InfoService {
     private final CountriesCovidInfoRepository countriesCovidInfoRepository;
     private final ModelMapper modelMapper;
+//    private final Gson gson;
 
     public CountryCovid19InfoServiceImpl(CountriesCovidInfoRepository countriesCovidInfoRepository, ModelMapper modelMapper) {
         this.countriesCovidInfoRepository = countriesCovidInfoRepository;
         this.modelMapper = modelMapper;
+//        this.gson = gson;
     }
 
     @Override
@@ -32,26 +36,27 @@ public class CountryCovid19InfoServiceImpl implements CountryCovid19InfoService 
                     .substring("Countries=".length() + 1)
                     .split("], ")[0]
                     .split("}, ");
-            for (String s : countriesInfo) {
+            for (String countryInfo : countriesInfo) {
                 String currentCountryCode = "";
-                if (s.contains("CountryCode=")) {
-                    int countryCodeIndex = s.lastIndexOf("CountryCode=");
-                    currentCountryCode = s.substring(countryCodeIndex).split(", ")[0].split("=")[1];
+                if (countryInfo.contains("CountryCode=")) {
+                    int countryCodeIndex = countryInfo.lastIndexOf("CountryCode=");
+                    currentCountryCode = countryInfo.substring(countryCodeIndex).split(", ")[0].split("=")[1];
                 }
-                String[] currentCountryInfo = s.split(", ");
-                CountryCovidInfo countryCovidInfo = new CountryCovidInfo()
-                        .setID(splitInputData(currentCountryInfo[0]))
-                        .setCountry(splitInputData(currentCountryInfo[1]))
-                        .setCountryCode(currentCountryCode)
-                        .setSlug(splitInputData(currentCountryInfo[3]))
-                        .setNewConfirmed(splitInputData(currentCountryInfo[4]))
-                        .setTotalConfirmed(splitInputData(currentCountryInfo[5]))
-                        .setNewDeaths(splitInputData(currentCountryInfo[6]))
-                        .setTotalDeaths(splitInputData(currentCountryInfo[7]))
-                        .setNewRecovered(splitInputData(currentCountryInfo[8]))
-                        .setTotalRecovered(splitInputData(currentCountryInfo[9]))
-                        .setDate(splitInputData(currentCountryInfo[10]))
-                        .setPremium(splitInputData(currentCountryInfo[11]));
+                String[] currentCountryInfo = countryInfo.split(", ");
+                CountryCovidInfo countryCovidInfo =
+                        new CountryCovidInfo()
+                                .setID(splitInputData(currentCountryInfo[0]))
+                                .setCountry(splitInputData(currentCountryInfo[1]))
+                                .setCountryCode(currentCountryCode)
+                                .setSlug(splitInputData(currentCountryInfo[3]))
+                                .setNewConfirmed(splitInputData(currentCountryInfo[4]))
+                                .setTotalConfirmed(splitInputData(currentCountryInfo[5]))
+                                .setNewDeaths(splitInputData(currentCountryInfo[6]))
+                                .setTotalDeaths(splitInputData(currentCountryInfo[7]))
+                                .setNewRecovered(splitInputData(currentCountryInfo[8]))
+                                .setTotalRecovered(splitInputData(currentCountryInfo[9]))
+                                .setDate(splitInputData(currentCountryInfo[10]))
+                                .setPremium(splitInputData(currentCountryInfo[11]));
                 countries.add(countryCovidInfo);
             }
 
@@ -88,15 +93,15 @@ public class CountryCovid19InfoServiceImpl implements CountryCovid19InfoService 
 
     @Override
     public CountryCovidViewModel findByCountryCode(String countryCode) {
-        Optional<CountryCovidInfo> byCountryCode = this.countriesCovidInfoRepository.findByCountryCode(countryCode.toUpperCase(Locale.ROOT));
-        if (byCountryCode.isPresent()) {
-            CountryCovidInfo countryCovidInfo = byCountryCode.get();
-            CountryCovidViewModel map = this.modelMapper.map(countryCovidInfo, CountryCovidViewModel.class);
-            List<Premium> premiums = new ArrayList<>();
-            Premium premium = new Premium();
-            premium.setPremium(countryCovidInfo.getPremium());
-            map.setPremium(premiums);
-            return map;
+        Optional<CountryCovidInfo> countryByCountryCode = this.countriesCovidInfoRepository.findByCountryCode(countryCode.toUpperCase(Locale.ROOT));
+        if (countryByCountryCode.isPresent()) {
+            CountryCovidInfo countryCovidInfo = countryByCountryCode.get();
+            CountryCovidViewModel countryView = this.modelMapper.map(countryCovidInfo, CountryCovidViewModel.class);
+//            List<Premium> premiums = new ArrayList<>();
+//            Premium premium = new Premium();
+//            premium.setPremium(premium);
+//            countryView.setPremium(premium);
+            return countryView;
         } else {
             return null;
         }

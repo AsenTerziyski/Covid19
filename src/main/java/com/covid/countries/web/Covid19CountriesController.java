@@ -22,11 +22,11 @@ public class Covid19CountriesController {
 
     @GetMapping("/{countryCode}")
     public ResponseEntity<CountryCovidViewModel> getCountryCovid19InfoByCountryCode(@PathVariable String countryCode) {
-        CountryCovidViewModel byCountryCode = this.countryCovid19InfoService.findByCountryCode(countryCode);
-        if (byCountryCode == null || !countryCode.toUpperCase(Locale.ROOT).equals(countryCode)) {
+        CountryCovidViewModel countryViewByCountryCode = this.countryCovid19InfoService.findByCountryCode(countryCode);
+        if (countryViewByCountryCode == null || !countryCode.toUpperCase(Locale.ROOT).equals(countryCode)) {
             return ResponseEntity.notFound().build();
         } else {
-            return ResponseEntity.ok(byCountryCode);
+            return ResponseEntity.ok(countryViewByCountryCode);
         }
     }
 }
