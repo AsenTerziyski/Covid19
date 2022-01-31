@@ -20,7 +20,7 @@ SOURCE URL: https://api.covid19api.com/summary
 
 EXAMPLES: (COUNTRYCODE: capital letters only allowed.)
 
-url format: https://covid19countries.herokuapp.com/country/{COUNTRYCODE}
+url format: "https://covid19countries.herokuapp.com/country/{COUNTRYCODE}"
 
 https://covid19countries.herokuapp.com/country/BG
 
