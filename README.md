@@ -11,7 +11,7 @@ like BG for Bulgaria and DE for Germany (capital letters only allowed)
 
 2.SOLUTION:
 
-//todo: When downloading code, please type password in yml file. My password sent via email:
+//todo: When downloading code, please type password in yml file. Password sent via email:
 
     username: root
     password: ....
@@ -20,7 +20,7 @@ SOURCE URL: https://api.covid19api.com/summary
 
 EXAMPLES: (COUNTRYCODE: capital letters only allowed.)
 
-https://covid19countries.herokuapp.com/country/{COUNTRYCODE}
+url format: https://covid19countries.herokuapp.com/country/{COUNTRYCODE}
 
 https://covid19countries.herokuapp.com/country/BG
 
