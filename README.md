@@ -11,7 +11,7 @@ like BG for Bulgaria and DE for Germany (capital letters only allowed)
 
 2.SOLUTION:
 
-//todo: When downloading code, please type password in yml file. Password sent via email:
+//todo: When you download code, please type password in yml file. Password sent via email:
 
     username: root
     password: ....
