@@ -28,7 +28,7 @@ http://localhost:8000/country/UA
 
 http://localhost:8000/country/US
 
-I also deployed the app on herokuapp.com. Here you can see some examples:
+I also deployed the app on herokuapp.com. Here you can find some examples:
 
 https://covid19countries.herokuapp.com/country/BG
 
