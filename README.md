@@ -11,11 +11,10 @@ like BG for Bulgaria and DE for Germany (capital letters only allowed)
 
 2.SOLUTION:
 
-//todo
-When downloading code, please fill password in properties.yml:
+//todo: When downloading code, please type password in yml.My password sent via email:
 
-username: root
-password: ....
+    username: root
+    password: ....
     
 SOURCE URL: https://api.covid19api.com/summary
 
