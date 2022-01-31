@@ -22,6 +22,14 @@ EXAMPLES: (COUNTRYCODE: capital letters only allowed.)
 
 url format: https://covid19countries.herokuapp.com/country/{COUNTRYCODE}
 
+http://localhost:8000/country/BG
+
+http://localhost:8000/country/UA
+
+http://localhost:8000/country/US
+
+I also deployed the app on herokuapp.com. Here you can see some examples:
+
 https://covid19countries.herokuapp.com/country/BG
 
 https://covid19countries.herokuapp.com/country/UA
