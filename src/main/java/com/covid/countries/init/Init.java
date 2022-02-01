@@ -2,6 +2,8 @@ package com.covid.countries.init;
 
 import com.covid.countries.globalconstants.GlobalConstants;
 //import com.covid.countries.model.modelgson.Container;
+import com.covid.countries.model.entities.CountryCovidInfo;
+import com.covid.countries.repository.CountriesCovidInfoRepository;
 import com.covid.countries.service.CountryCovid19InfoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,16 +24,22 @@ public class Init implements CommandLineRunner {
     private final CountryCovid19InfoService countryCovid19InfoService;
     private final RestTemplate restTemplate;
     private static final Logger LOGGER = LoggerFactory.getLogger(Init.class);
+    private final CountriesCovidInfoRepository countriesCovidInfoRepository;
 
-    public Init(CountryCovid19InfoService countryCovid19InfoService, RestTemplate restTemplate) {
+    public Init(CountryCovid19InfoService countryCovid19InfoService, RestTemplate restTemplate, CountriesCovidInfoRepository countriesCovidInfoRepository) {
         this.countryCovid19InfoService = countryCovid19InfoService;
         this.restTemplate = restTemplate;
+        this.countriesCovidInfoRepository = countriesCovidInfoRepository;
     }
 
     @Override
     public void run(String... args) throws Exception {
         LOGGER.info("Started at {}", LocalDateTime.now());
+        CountryCovidInfo countryCovidInfo = new CountryCovidInfo();
         extractAndSaveDataFromURL();
+        countryCovidInfo.setCountry("Test");
+        Long idDb = this.countriesCovidInfoRepository.save(countryCovidInfo).getIdDb();
+        System.out.println(idDb);
     }
 
     @Scheduled(cron = "*/60 * * * * *")
