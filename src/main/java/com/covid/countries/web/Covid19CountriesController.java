@@ -3,6 +3,7 @@ package com.covid.countries.web;
 import com.covid.countries.model.view.CountryCovidViewModel;
 import com.covid.countries.service.CountryCovid19InfoService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,12 +21,15 @@ public class Covid19CountriesController {
         this.countryCovid19InfoService = countryCovid19InfoService;
     }
 
+
     @GetMapping("/{countryCode}")
     public ResponseEntity<CountryCovidViewModel> getCountryCovid19InfoByCountryCode(@PathVariable String countryCode) {
+        System.out.println();
         CountryCovidViewModel countryViewByCountryCode = this.countryCovid19InfoService.findByCountryCode(countryCode);
         if (countryViewByCountryCode == null || !countryCode.toUpperCase(Locale.ROOT).equals(countryCode)) {
             return ResponseEntity.notFound().build();
         } else {
+
             return ResponseEntity.ok(countryViewByCountryCode);
         }
     }

@@ -53,6 +53,7 @@ public class CountryCovid19InfoServiceImpl implements CountryCovid19InfoService 
                                 .setDate(splitInputData(currentCountryInfo[10]))
                                 .setPremium(splitInputData(currentCountryInfo[11]));
                 countries.add(countryCovidInfo);
+
             }
         }
         saveProcessedInputInfoInDb(countries);

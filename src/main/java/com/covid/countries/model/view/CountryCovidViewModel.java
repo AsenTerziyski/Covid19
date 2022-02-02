@@ -1,5 +1,7 @@
 package com.covid.countries.model.view;
 
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import javax.validation.constraints.*;
@@ -9,27 +11,17 @@ import java.util.Date;
 import java.util.List;
 
 public class CountryCovidViewModel {
-    @NotBlank
+
     private String ID;
-    @NotBlank
     private String country;
-    @NotBlank
     private String countryCode;
-    @NotBlank
     private String slug;
-    @NotNull
     private Integer newConfirmed;
-    @NotNull
     private Integer totalConfirmed;
-    @NotNull
     private Integer newDeaths;
-    @NotNull
     private Integer totalDeaths;
-    @NotNull
     private Integer newRecovered;
-    @NotNull
     private Integer totalRecovered;
-    @NotBlank
     private String date;
     private Object premium;
 

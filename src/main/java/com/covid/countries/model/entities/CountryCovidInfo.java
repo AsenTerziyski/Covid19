@@ -16,6 +16,7 @@ public class CountryCovidInfo extends BaseEntity {
     private String country;
     @NotBlank
     @Column(unique = true)
+    @Size(min = 2)
     private String countryCode;
     @NotBlank
     @Column(unique = true)
