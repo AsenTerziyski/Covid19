@@ -1,21 +1,36 @@
 package com.covid.countries.model.view;
 
+import org.springframework.stereotype.Service;
+
+import javax.validation.constraints.*;
+import javax.xml.crypto.Data;
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 public class CountryCovidViewModel {
+    @NotBlank
     private String ID;
+    @NotBlank
     private String country;
+    @NotBlank
     private String countryCode;
+    @NotBlank
     private String slug;
+    @NotNull
     private Integer newConfirmed;
+    @NotNull
     private Integer totalConfirmed;
+    @NotNull
     private Integer newDeaths;
+    @NotNull
     private Integer totalDeaths;
+    @NotNull
     private Integer newRecovered;
+    @NotNull
     private Integer totalRecovered;
+    @NotBlank
     private String date;
-//    private Premium premium;
-//    private String premium;
     private Object premium;
 
     public CountryCovidViewModel() {
@@ -119,25 +134,6 @@ public class CountryCovidViewModel {
         this.date = date;
         return this;
     }
-
-//    public Premium getPremium() {
-//        return premium;
-//    }
-//
-//    public CountryCovidViewModel setPremium(Premium premium) {
-//        this.premium = premium;
-//        return this;
-//    }
-
-//    public String getPremium() {
-//        return premium;
-//    }
-//
-//    public CountryCovidViewModel setPremium(String premium) {
-//        this.premium = premium;
-//        return this;
-//    }
-
 
     public Object getPremium() {
         return premium;

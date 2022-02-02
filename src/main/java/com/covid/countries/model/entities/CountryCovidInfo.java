@@ -1,21 +1,40 @@
 package com.covid.countries.model.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 @Entity
 public class CountryCovidInfo extends BaseEntity {
 
+    @NotBlank
+    @Column(unique = true)
     private String ID;
+    @NotBlank
+    @Column(unique = true)
     private String country;
+    @NotBlank
+    @Column(unique = true)
     private String countryCode;
+    @NotBlank
+    @Column(unique = true)
     private String slug;
+    @NotBlank
     private String newConfirmed;
+    @NotBlank
     private String totalConfirmed;
+    @NotBlank
     private String newDeaths;
+    @NotBlank
     private String totalDeaths;
+    @NotBlank
     private String newRecovered;
+    @NotBlank
     private String totalRecovered;
+    @NotBlank
     private String date;
+    @NotBlank
     private String premium;
 
     public CountryCovidInfo() {
