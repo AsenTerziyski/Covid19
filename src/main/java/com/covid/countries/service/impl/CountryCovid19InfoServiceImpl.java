@@ -4,6 +4,8 @@ import com.covid.countries.model.entities.CountryCovidInfo;
 import com.covid.countries.model.view.CountryCovidViewModel;
 import com.covid.countries.repository.CountriesCovidInfoRepository;
 import com.covid.countries.service.CountryCovid19InfoService;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
