@@ -10,28 +10,16 @@ public class CountryCovidInfo extends BaseEntity {
 
 
     private String ID;
-
     private String country;
-
-
     private String countryCode;
-
     private String slug;
-
     private String newConfirmed;
-
     private String totalConfirmed;
-
     private String newDeaths;
-
     private String totalDeaths;
-
     private String newRecovered;
-
     private String totalRecovered;
-
     private String date;
-
     private String premium;
 
     public CountryCovidInfo() {

@@ -4,8 +4,7 @@ import com.covid.countries.model.entities.CountryCovidInfo;
 import com.covid.countries.model.view.CountryCovidViewModel;
 import com.covid.countries.repository.CountriesCovidInfoRepository;
 import com.covid.countries.service.CountryCovid19InfoService;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import com.covid.countries.validator.ValidationUtil;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
@@ -55,7 +54,6 @@ public class CountryCovid19InfoServiceImpl implements CountryCovid19InfoService 
                                 .setDate(splitInputData(currentCountryInfo[10]))
                                 .setPremium(splitInputData(currentCountryInfo[11]));
                 countries.add(countryCovidInfo);
-
             }
         }
         saveProcessedInputInfoInDb(countries);
@@ -100,8 +98,7 @@ public class CountryCovid19InfoServiceImpl implements CountryCovid19InfoService 
         Optional<CountryCovidInfo> countryByCountryCode = this.countriesCovidInfoRepository.findByCountryCode(countryCode.toUpperCase(Locale.ROOT));
         if (countryByCountryCode.isPresent()) {
             CountryCovidInfo countryCovidInfo = countryByCountryCode.get();
-            CountryCovidViewModel countryView = this.modelMapper.map(countryCovidInfo, CountryCovidViewModel.class);
-            return countryView;
+            return this.modelMapper.map(countryCovidInfo, CountryCovidViewModel.class);
         } else {
             return null;
         }

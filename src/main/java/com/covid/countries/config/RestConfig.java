@@ -17,14 +17,6 @@ public class RestConfig {
         return restTemplateBuilder.build();
     }
 
-//    @Bean
-//    public Gson gson() {
-//        Gson gson = new GsonBuilder()
-//                .excludeFieldsWithoutExposeAnnotation().setLenient()
-//                .setPrettyPrinting().create();
-//        return gson;
-//    }
-
     @Bean
     public ModelMapper modelMapper () {
         return new ModelMapper();

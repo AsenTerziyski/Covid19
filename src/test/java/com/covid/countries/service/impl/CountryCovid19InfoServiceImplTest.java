@@ -4,17 +4,16 @@ import com.covid.countries.globalconstants.GlobalConstants;
 import com.covid.countries.model.entities.CountryCovidInfo;
 import com.covid.countries.model.view.CountryCovidViewModel;
 import com.covid.countries.repository.CountriesCovidInfoRepository;
+import com.covid.countries.validator.ValidationUtil;
+import com.covid.countries.validator.ValidationUtilImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.MockedConstruction;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.mockito.stubbing.OngoingStubbing;
 import org.modelmapper.ModelMapper;
 
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,7 +23,6 @@ import static org.junit.jupiter.api.Assertions.*;
 class CountryCovid19InfoServiceImplTest {
 
     private CountryCovid19InfoServiceImpl countryCovid19InfoServiceToTest;
-
     @Mock
     private CountriesCovidInfoRepository mockedRepo;
 
@@ -34,10 +32,18 @@ class CountryCovid19InfoServiceImplTest {
 
     @BeforeEach
     void initCountries() {
-        this.country1 = new CountryCovidInfo().setCountryCode("ZZ")
+        this.country1 = new CountryCovidInfo()
+                .setID("testId")
+                .setCountry("TestCountry1")
+                .setSlug("test1")
+                .setCountryCode("ZZ")
                 .setNewConfirmed("1")
+                .setTotalConfirmed("1")
                 .setNewRecovered("1")
-                .setNewDeaths("1");
+                .setNewDeaths("1")
+                .setTotalDeaths("1")
+                .setTotalRecovered("1").setDate("testDate");
+
         this.country2 = new CountryCovidInfo().setCountryCode("XX")
                 .setNewConfirmed("2")
                 .setNewRecovered("2")

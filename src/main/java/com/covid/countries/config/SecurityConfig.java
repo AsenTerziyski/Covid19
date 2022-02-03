@@ -14,13 +14,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         security
                 .httpBasic()
                 .disable();
-
         // достъп до h2 базата:
         security
-//                .authorizeRequests()
-//                .antMatchers("/**")
-//                .permitAll()
-//                .and()
                 .authorizeRequests()
                 .antMatchers("/console/**")
                 .permitAll();

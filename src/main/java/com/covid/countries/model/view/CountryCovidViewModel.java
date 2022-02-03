@@ -20,34 +20,24 @@ import java.util.List;
 
 public class CountryCovidViewModel {
 
-    @Expose
+
     private String ID;
-    @Expose
     private String country;
-    @Expose
     private String countryCode;
-    @Expose
     private String slug;
-    @Expose
     private Integer newConfirmed;
-    @Expose
     private Integer totalConfirmed;
-    @Expose
     private Integer newDeaths;
-    @Expose
     private Integer totalDeaths;
-    @Expose
     private Integer newRecovered;
-    @Expose
     private Integer totalRecovered;
-    @Expose
     private String date;
-    @Expose
     private Object premium;
 
     public CountryCovidViewModel() {
     }
 
+    @NotBlank
     public String getID() {
         return ID;
     }
@@ -57,6 +47,7 @@ public class CountryCovidViewModel {
         return this;
     }
 
+    @NotBlank
     public String getCountry() {
         return country;
     }
@@ -66,8 +57,8 @@ public class CountryCovidViewModel {
         return this;
     }
 
-
-    @Size(min = 1)
+    @NotBlank
+    @Size(min = 2)
     public String getCountryCode() {
         return countryCode;
     }
@@ -77,6 +68,7 @@ public class CountryCovidViewModel {
         return this;
     }
 
+    @NotBlank
     public String getSlug() {
         return slug;
     }
@@ -86,6 +78,7 @@ public class CountryCovidViewModel {
         return this;
     }
 
+    @NotNull
     public Integer getNewConfirmed() {
         return newConfirmed;
     }
@@ -95,6 +88,7 @@ public class CountryCovidViewModel {
         return this;
     }
 
+    @NotNull
     public Integer getTotalConfirmed() {
         return totalConfirmed;
     }
@@ -104,6 +98,7 @@ public class CountryCovidViewModel {
         return this;
     }
 
+    @NotNull
     public Integer getNewDeaths() {
         return newDeaths;
     }
@@ -113,6 +108,7 @@ public class CountryCovidViewModel {
         return this;
     }
 
+    @NotNull
     public Integer getTotalDeaths() {
         return totalDeaths;
     }
@@ -122,6 +118,7 @@ public class CountryCovidViewModel {
         return this;
     }
 
+    @NotNull
     public Integer getNewRecovered() {
         return newRecovered;
     }
@@ -131,6 +128,7 @@ public class CountryCovidViewModel {
         return this;
     }
 
+    @NotNull
     public Integer getTotalRecovered() {
         return totalRecovered;
     }
@@ -140,6 +138,7 @@ public class CountryCovidViewModel {
         return this;
     }
 
+    @NotNull
     public String getDate() {
         return date;
     }

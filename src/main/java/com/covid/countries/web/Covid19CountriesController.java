@@ -22,33 +22,16 @@ public class Covid19CountriesController {
         this.validationUtil = validationUtil;
     }
 
-//    @GetMapping("/{countryCode}")
-//    public ResponseEntity<CountryCovidViewModel> getCountryCovid19InfoByCountryCode(@PathVariable String countryCode) {
-//        CountryCovidViewModel countryViewByCountryCode = this.countryCovid19InfoService.findByCountryCode(countryCode);
-//        if (countryViewByCountryCode == null || !countryCode.toUpperCase(Locale.ROOT).equals(countryCode)) {
-//            return ResponseEntity.notFound().build();
-//        } else {
-//            return ResponseEntity.ok(countryViewByCountryCode);
-//        }
-//    }
-
     @GetMapping("/{countryCode}")
-    public ResponseEntity<String> getCountryCovid19InfoByCountryCode(@PathVariable String countryCode) {
+    public ResponseEntity<CountryCovidViewModel> getCountryCovid19InfoByCountryCode(@PathVariable String countryCode) {
         CountryCovidViewModel countryViewByCountryCode = this.countryCovid19InfoService.findByCountryCode(countryCode);
-        System.out.println();
-        Gson gson = new GsonBuilder()
-                .excludeFieldsWithoutExposeAnnotation()
-                .setPrettyPrinting()
-                .create();
-        boolean isValid = this.validationUtil.isValid(countryViewByCountryCode);
-        String output = gson.toJson(countryViewByCountryCode);
-
-        if (!isValid || output.isBlank() || !countryCode.toUpperCase(Locale.ROOT).equals(countryCode)) {
+        if (countryViewByCountryCode == null
+                || !countryCode.toUpperCase(Locale.ROOT).equals(countryCode)
+                || !this.validationUtil.isValid(countryViewByCountryCode)) {
             return ResponseEntity.notFound().build();
         } else {
-            return ResponseEntity.ok(gson.toJson(countryViewByCountryCode));
+            return ResponseEntity.ok(countryViewByCountryCode);
         }
     }
-
 
 }
