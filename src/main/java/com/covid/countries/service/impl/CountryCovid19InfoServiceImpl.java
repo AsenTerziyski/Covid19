@@ -4,7 +4,6 @@ import com.covid.countries.model.entities.CountryCovidInfo;
 import com.covid.countries.model.view.CountryCovidViewModel;
 import com.covid.countries.repository.CountriesCovidInfoRepository;
 import com.covid.countries.service.CountryCovid19InfoService;
-import com.covid.countries.validator.ValidationUtil;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +16,7 @@ import java.util.Optional;
 public class CountryCovid19InfoServiceImpl implements CountryCovid19InfoService {
     private final CountriesCovidInfoRepository countriesCovidInfoRepository;
     private final ModelMapper modelMapper;
+
 
     public CountryCovid19InfoServiceImpl(CountriesCovidInfoRepository countriesCovidInfoRepository, ModelMapper modelMapper) {
         this.countriesCovidInfoRepository = countriesCovidInfoRepository;

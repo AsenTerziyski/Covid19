@@ -1,25 +1,9 @@
 package com.covid.countries.model.view;
 
-import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
-import com.google.gson.annotations.Expose;
-import jdk.jfr.DataAmount;
-import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
-
-import javax.validation.Valid;
 import javax.validation.constraints.*;
-import javax.validation.executable.ValidateOnExecution;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.crypto.Data;
-import java.time.LocalDateTime;
-import java.util.Date;
-import java.util.List;
+
 
 public class CountryCovidViewModel {
-
 
     private String ID;
     private String country;
@@ -148,6 +132,7 @@ public class CountryCovidViewModel {
         return this;
     }
 
+    @NotNull
     public Object getPremium() {
         return premium;
     }

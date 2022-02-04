@@ -1,8 +1,5 @@
 package com.covid.countries.config;
 
-import com.covid.countries.repository.CountriesCovidInfoRepository;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;

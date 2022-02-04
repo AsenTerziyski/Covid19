@@ -1,9 +1,6 @@
 package com.covid.countries.model.entities;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
 
 @Entity
 public class CountryCovidInfo extends BaseEntity {

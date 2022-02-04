@@ -4,8 +4,6 @@ import com.covid.countries.globalconstants.GlobalConstants;
 import com.covid.countries.model.entities.CountryCovidInfo;
 import com.covid.countries.model.view.CountryCovidViewModel;
 import com.covid.countries.repository.CountriesCovidInfoRepository;
-import com.covid.countries.validator.ValidationUtil;
-import com.covid.countries.validator.ValidationUtilImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -13,10 +11,8 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.modelmapper.ModelMapper;
-
 import java.util.List;
 import java.util.Optional;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -59,7 +55,7 @@ class CountryCovid19InfoServiceImplTest {
 
     @Test
     void processCovid19Data() {
-        List<CountryCovidInfo> countryCovidInfos = this.countryCovid19InfoServiceToTest.processCovid19Data(GlobalConstants.testInput);
+        List<CountryCovidInfo> countryCovidInfos = this.countryCovid19InfoServiceToTest.processCovid19Data(GlobalConstants.TEST_INPUT);
         assertEquals(2, countryCovidInfos.size());
 
         assertEquals("ZZ", countryCovidInfos.get(0).getCountryCode());
@@ -76,7 +72,7 @@ class CountryCovid19InfoServiceImplTest {
     @Test
     void saveProcessedInputInfoInDb() {
         Mockito.when(this.mockedRepo.findAll()).thenReturn(List.of(country1, country2));
-        List<CountryCovidInfo> countryCovidInfos = this.countryCovid19InfoServiceToTest.processCovid19Data(GlobalConstants.testInput);
+        List<CountryCovidInfo> countryCovidInfos = this.countryCovid19InfoServiceToTest.processCovid19Data(GlobalConstants.TEST_INPUT);
         List<CountryCovidInfo> allCountriesInMockedRepo = this.mockedRepo.findAll();
         assertEquals(countryCovidInfos.get(0).getCountryCode(), allCountriesInMockedRepo.get(0).getCountryCode());
         assertEquals(countryCovidInfos.get(1).getCountryCode(), allCountriesInMockedRepo.get(1).getCountryCode());

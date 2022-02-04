@@ -3,11 +3,8 @@ package com.covid.countries.web;
 import com.covid.countries.model.view.CountryCovidViewModel;
 import com.covid.countries.service.CountryCovid19InfoService;
 import com.covid.countries.validator.ValidationUtil;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.Locale;
 
 @RestController
@@ -25,9 +22,10 @@ public class Covid19CountriesController {
     @GetMapping("/{countryCode}")
     public ResponseEntity<CountryCovidViewModel> getCountryCovid19InfoByCountryCode(@PathVariable String countryCode) {
         CountryCovidViewModel countryViewByCountryCode = this.countryCovid19InfoService.findByCountryCode(countryCode);
+        boolean countryViewByCountryCodeIsValid = this.validationUtil.isValid(countryViewByCountryCode);
         if (countryViewByCountryCode == null
                 || !countryCode.toUpperCase(Locale.ROOT).equals(countryCode)
-                || !this.validationUtil.isValid(countryViewByCountryCode)) {
+                || !countryViewByCountryCodeIsValid) {
             return ResponseEntity.notFound().build();
         } else {
             return ResponseEntity.ok(countryViewByCountryCode);

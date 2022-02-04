@@ -1,9 +1,6 @@
 package com.covid.countries.init;
 
 import com.covid.countries.globalconstants.GlobalConstants;
-//import com.covid.countries.model.modelgson.Container;
-import com.covid.countries.model.entities.CountryCovidInfo;
-import com.covid.countries.repository.CountriesCovidInfoRepository;
 import com.covid.countries.service.CountryCovid19InfoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
