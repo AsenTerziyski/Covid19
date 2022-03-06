@@ -1,0 +1,6 @@
+https://medium.com/swlh/getting-json-data-from-a-restful-api-using-java-b327aafb3751
+https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple/1.1.1
+https://dzone.com/articles/how-to-parse-json-data-from-a-rest-api-using-simpl
+
+достъп до h2 конзолата:
+http://localhost:8000/h2-console/login.jsp?jsessionid=5dd9d0e040a299c110c6d41c897a021e

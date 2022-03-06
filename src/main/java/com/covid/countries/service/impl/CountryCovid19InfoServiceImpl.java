@@ -94,6 +94,11 @@ public class CountryCovid19InfoServiceImpl implements CountryCovid19InfoService 
     }
 
     @Override
+    public void saveCovid19InfoInDb(ArrayList<CountryCovidInfo> covidInfo19) {
+        this.countriesCovidInfoRepository.saveAll(covidInfo19);
+    }
+
+    @Override
     public CountryCovidViewModel findByCountryCode(String countryCode) {
         Optional<CountryCovidInfo> countryByCountryCode = this.countriesCovidInfoRepository.findByCountryCode(countryCode.toUpperCase(Locale.ROOT));
         if (countryByCountryCode.isPresent()) {
