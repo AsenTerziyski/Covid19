@@ -1,6 +1,5 @@
 package com.covid.countries.init;
 
-import com.covid.countries.globalconstants.GlobalConstants;
 import com.covid.countries.model.entities.CountryCovidInfo;
 import com.covid.countries.service.CountryCovid19InfoService;
 import org.json.simple.JSONArray;
@@ -9,19 +8,13 @@ import org.json.simple.parser.JSONParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
-import java.io.BufferedReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Objects;
 import java.util.Scanner;
 
 @Component
@@ -93,6 +86,7 @@ public class Init implements CommandLineRunner {
                         .setTotalRecovered(totalRecovered)
                         .setDate(date)
                         .setPremium("premium");
+
                 covidInfo19.add(countryCovidInfo);
             }
             System.out.println();

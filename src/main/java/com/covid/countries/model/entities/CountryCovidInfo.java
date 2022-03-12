@@ -1,10 +1,12 @@
 package com.covid.countries.model.entities;
 
+import org.json.simple.JSONObject;
+
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 
 @Entity
 public class CountryCovidInfo extends BaseEntity {
-
 
     private String ID;
     private String country;
@@ -18,8 +20,12 @@ public class CountryCovidInfo extends BaseEntity {
     private String totalRecovered;
     private String date;
     private String premium;
+    @OneToOne
+    // not mix property and fields!
+    private TestEntity testEntity;
 
     public CountryCovidInfo() {
+
     }
 
     public String getID() {
@@ -129,4 +135,6 @@ public class CountryCovidInfo extends BaseEntity {
         this.premium = premium;
         return this;
     }
+
+
 }
