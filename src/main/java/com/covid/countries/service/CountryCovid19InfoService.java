@@ -8,11 +8,7 @@ import java.util.List;
 
 public interface CountryCovid19InfoService {
 
-    List<CountryCovidInfo> processCovid19Data(String inputData);
-
     CountryCovidViewModel findByCountryCode(String countryCode);
-
-    List<CountryCovidInfo> saveProcessedInputInfoInDb(List<CountryCovidInfo> countries);
 
     void saveCovid19InfoInDb(ArrayList<CountryCovidInfo> covidInfo19);
 }
